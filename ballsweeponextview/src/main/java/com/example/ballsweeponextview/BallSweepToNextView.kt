@@ -208,4 +208,13 @@ class BallSweepToNextView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(actvity : Activity) : BallSweepToNextView {
+            val view : BallSweepToNextView = BallSweepToNextView(actvity)
+            actvity.setContentView(view)
+            return view
+        }
+    }
 }
