@@ -1,0 +1,3 @@
+include ':ballsweeponextview'
+include ':app'
+rootProject.name = "LinkedBallSweepToNextView"
