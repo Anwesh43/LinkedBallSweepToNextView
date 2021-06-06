@@ -20,7 +20,7 @@ val colors : Array<Int> = arrayOf(
 }.toTypedArray()
 val parts : Int = 5
 val scGap : Float = 0.02f / parts
-val delay : Long = 90
+val delay : Long = 12
 val lFactor : Float = 4.9f
 val rFactor : Float = 11.2f
 val strokeFactor : Float = 90f
@@ -39,10 +39,13 @@ fun Canvas.drawBallSweepToNext(scale : Float, w : Float, h : Float, paint : Pain
     val sc3 : Float = scale.divideScale(2, parts)
     val sc4 : Float = scale.divideScale(3, parts)
     val sc5 : Float = scale.divideScale(4, parts)
+    if (sc1 <= 0) {
+        return
+    }
     save()
     translate(w / 2, h / 2)
     rotate(rot * sc3)
-    drawCircle(size + (w / 2 - size + r) * sc4, -r + (h / 2 + r) * sc2, r, paint)
+    drawCircle(size + (h / 2 - size + r) * sc4, -h / 2 -r + (h / 2 + r) * sc2, r, paint)
     drawLine(0f, 0f, size * (sc1 - sc5), 0f, paint)
     restore()
 }
